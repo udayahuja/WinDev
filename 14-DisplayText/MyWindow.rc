@@ -1,0 +1,2 @@
+#include"MyWindow.h"
+FLAG_IMG BITMAP flag1.bmp

@@ -75,9 +75,11 @@ DWORD WINAPI ThreadProcOne(LPVOID param) {
 	HDC hdc;
 	TCHAR str[255];
 	hdc = GetDC((HWND)param);
+	SetBkColor(hdc, RGB(0, 0, 0));
+	SetTextColor(hdc, RGB(0, 255, 0));
 	for (int i = 0; i < 2147483647;i++) {
 		wsprintf(str, TEXT("Thread 1: Incrementing: %d"), i);
-		TextOut(hdc, 0, 5, str, wcslen(str));
+		TextOut(hdc, 5, 5, str, wcslen(str));
 	}
 	ReleaseDC((HWND)param, hdc);
 	return 0;
@@ -86,6 +88,8 @@ DWORD WINAPI ThreadProcTwo(LPVOID param) {
 	HDC hdc;
 	TCHAR str[255];
 	hdc = GetDC((HWND)param);
+	SetBkColor(hdc, RGB(0, 0, 0));
+	SetTextColor(hdc, RGB(0, 255, 0));
 	for (int i = 2147483647; i > 0; i--) {
 		wsprintf(str, TEXT("Thread 2: Decrementing: %d"), i);
 		TextOut(hdc, 5, 25, str, wcslen(str));
